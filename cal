@@ -1,3 +1,4 @@
+from math import sqrt
 from tkinter import *
 root=Tk()
 
@@ -45,6 +46,15 @@ def div():
     global operation
     operation = 'div'
 
+
+#define square_root function
+
+def square_root():
+    global first_number
+    first_number = cal_entry.get()
+    cal_entry.delete(0, END)
+    global operation
+    operation = 'sqrt'
 # defining equal function
 def equal():
     try:
@@ -58,6 +68,8 @@ def equal():
             cal_entry.insert(0,int(first_number)/int(second_number))
         elif operation == 'sub':
             cal_entry.insert(0, int(first_number) - int(second_number))
+        elif operation == 'sqrt':
+            cal_entry.insert(0, sqrt(int(first_number)))
         else:
             cal_entry.insert(0,'0')
     except:
@@ -91,7 +103,7 @@ button_equal=Button(root,text='=',padx=34,pady=20,font=('callibri',12),command=e
 button0=Button(root,text='0',padx=34,pady=20,font=('callibri',12),command=lambda:click(0)).grid(row=4,column=1)
 button_clear=Button(root,text='clear',padx=25,pady=22,font=('callibri',10),command=clear).grid(row=4,column=0)
 button_sub=Button(root,text='-',padx=34,pady=20,font=('callibri',12),command=sub).grid(row=4,column=3)
-
+button_square_root=Button(root,text='√',padx=34,pady=20,font=('callibri',12),command=sub).grid(row=5,column=3)
 root.mainloop()
 
 
